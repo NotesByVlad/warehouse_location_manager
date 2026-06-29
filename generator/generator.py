@@ -1,9 +1,14 @@
 import json
 
 from rules import AISLE_CONFIG, SLOTS
+import os
 
+# OUTPUT_FILE = "warehouse_locations.json"
 
-OUTPUT_FILE = "warehouse_locations.json"
+BASE_DIR = os.path.dirname(__file__)             # generator/
+DATA_DIR = os.path.join(BASE_DIR, "..", "data")  # warehouse_location_manager/
+OUTPUT_FILE = os.path.join(DATA_DIR, "warehouse_locations.json")
+
 
 
 def create_location_code(aisle, column, row, slot):
