@@ -1,5 +1,5 @@
 from manager.location_manager import LocationManager
-
+from manager.statistics import WarehouseStatistics
 
 DATA_FILE = "data/warehouse_locations.json"
 
@@ -18,6 +18,7 @@ def main():
         print("7. Set maintenance")
         print("8. Save")
         print("9. Exit")
+        print("10. Show warehouse statistics")
 
         choice = input("Choose option: ")
 
@@ -59,8 +60,13 @@ def main():
             print("Saved. Exiting.")
             break
 
+        elif choice == "10":
+            stats = WarehouseStatistics(manager.warehouse)
+            stats.print_summary()
+
         else:
             print("Invalid option.")
+
 
 if __name__ == "__main__":
     main()
